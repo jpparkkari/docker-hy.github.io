@@ -22,3 +22,15 @@ jobs:
       with:
         push: true
         tags: jpparkkari/coursepage:latest
+    #deploy
+    - name: deploy
+      if: github.event_name == 'push' && contains(github.event.head_commit.message, '#skip') == false
+      uses: akhileshns/heroku-deploy@v3.11.10 # This is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "jpparkkari-coursepage" #Must be unique in Heroku
+        heroku_email: "j-p.parkkari@iki.fi"
+        #healthcheck: "https://thawing-dawn-25992.herokuapp.com/health"
+        #checkstring: "ok"
+        delay: 2
+        rollbackonhealthcheckfailed: true
