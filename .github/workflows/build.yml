@@ -25,13 +25,12 @@ jobs:
     #deploy
     - name: deploy
       if: github.event_name == 'push' && contains(github.event.head_commit.message, '#skip') == false
-      uses: akhileshns/heroku-deploy@v3.11.10 # This is the action
+      uses: gonuit/heroku-deploy@v1.3.2 # This is the action
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "jpparkkari-coursepage" #Must be unique in Heroku
-        heroku_email: "j-p.parkkari@iki.fi"
-        usedocker: true
-        #healthcheck: "https://thawing-dawn-25992.herokuapp.com/health"
-        #checkstring: "ok"
-        delay: 2
-        rollbackonhealthcheckfailed: true
+        email: "j-p.parkkari@iki.fi"
+        dockerfile_directory: ./
+        dockerfile_name: Dockerfile
+        docker_options: "--no-cache"
+        process_type: web
