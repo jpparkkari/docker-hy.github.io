@@ -30,6 +30,7 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "jpparkkari-coursepage" #Must be unique in Heroku
         heroku_email: "j-p.parkkari@iki.fi"
+        usedocker: true
         #healthcheck: "https://thawing-dawn-25992.herokuapp.com/health"
         #checkstring: "ok"
         delay: 2
