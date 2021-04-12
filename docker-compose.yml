@@ -3,7 +3,8 @@ services:
   coursematerial:
     image: jpparkkari/coursepage
     ports:
-      - 4000:80
+      #- 4000:80
+      - 80:80
     container_name: coursematerial
   watchtower:
     image: containrrr/watchtower 
