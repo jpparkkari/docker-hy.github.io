@@ -4,6 +4,8 @@ WORKDIR /tmp
 
 COPY Gemfile* ./
 
+CMD chmod 644 ./Gemfile
+
 RUN bundle install
 
 WORKDIR /usr/src/app
